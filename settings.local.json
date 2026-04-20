@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -r \"msacommon\" /var/www/php74/mason/api.admedia.com/*.php)",
+      "Bash(grep -h \"^include\\\\|^require\" /var/www/php74/mason/admediacrons.com/html/*.php)",
+      "Bash(grep -r \"include.*lib/php\" /var/www/php74/mason/api.admedia.com/*.php)",
+      "Bash(find:*)",
+      "Bash(xargs -I {} basename {})",
+      "Bash(grep -r \"SELECT\\\\|INSERT\\\\|UPDATE\\\\|DELETE\" /var/www/php74/mason/adcenter.admedia.com/html/app/Services/Dashboard/*.php)",
+      "Bash(wc -l /var/www/php74/mason/admediacrons.com/html/*.php)",
+      "Bash(grep -E \"^[a-z_]+\\\\.php$\")",
+      "Bash(ls -la /var/www/php74/mason/click/*.php)",
+      "Bash(grep -h \"new Redis\\\\|pconnect\\\\|connect\" /var/www/php74/mason/admediacrons.com/html/*.php)",
+      "Bash(wc -l /var/www/php74/mason/api.admedia.com/*.php)",
+      "Bash(ls -la /var/www/php74/mason/adcenter.admedia.com/migration/AP-2*/)",
+      "Bash(grep -E \"\\\\.\\(php|js\\)$\")",
+      "Bash(grep -r \"login\" /var/www/php74/mason/advertisers7_new.admedia.com/html/adcenter/config/*.php)",
+      "Bash(git symbolic-ref:*)",
+      "Bash(php vendor/bin/phpunit tests/App/Services/Dashboard/AnnouncementRepositoryTest.php)",
+      "Bash(php -v)",
+      "Bash(php7.4 -v)",
+      "Bash(php7.4 vendor/bin/phpunit tests/App/Services/Dashboard/AnnouncementRepositoryTest.php)",
+      "Bash(php7.4 /usr/local/bin/composer install --no-interaction)",
+      "Bash(php7.4 /usr/bin/composer install --working-dir=/var/www/php74/mason/adcenter.admedia.com/html --no-interaction)",
+      "Bash(php8.2 -v)",
+      "Bash(grep -n \"SELECT.*daily_budget_stats\\\\|SELECT.*adv_clicks\\\\|SELECT.*conversions\" /var/www/php74/mason/advertisers7_new.admedia.com/html/adcenter/controllers/*.php)",
+      "WebFetch(domain:github.com)",
+      "mcp__plugin_atlassian_atlassian__updateConfluencePage",
+      "Bash(grep -r '$_SESSION\\\\|session\\\\->get\\\\|session\\\\->set' /var/www/php74/mason/adcenter.admedia.com/html/app/Controllers '--include=*.php')",
+      "Bash(php:*)",
+      "Bash(grep -n \"SUPPORT_EMAIL\\\\|COMPANY_TITLE\\\\|TOLL_FREE\" /var/www/php74/mason/advertisers7_new.admedia.com/html/adcenter/config/*.php)",
+      "Bash(drest Admin:*)"
+    ]
+  }
+}
