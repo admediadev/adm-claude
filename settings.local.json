@@ -29,7 +29,23 @@
       "Bash(grep -r '$_SESSION\\\\|session\\\\->get\\\\|session\\\\->set' /var/www/php74/mason/adcenter.admedia.com/html/app/Controllers '--include=*.php')",
       "Bash(php:*)",
       "Bash(grep -n \"SUPPORT_EMAIL\\\\|COMPANY_TITLE\\\\|TOLL_FREE\" /var/www/php74/mason/advertisers7_new.admedia.com/html/adcenter/config/*.php)",
-      "Bash(drest Admin:*)"
+      "Bash(drest Admin:*)",
+      "Bash(git add *)",
+      "Bash(git diff *)",
+      "Read(//tmp/**)",
+      "Bash(vendor/bin/phpunit --version)",
+      "Bash(composer --version)",
+      "Bash(php7.4 --version)",
+      "Bash(php7.4 /usr/bin/composer install --no-interaction --no-progress)",
+      "Bash(php7.4 /usr/bin/composer --version)",
+      "Read(//usr/local/bin/**)",
+      "Bash(find / -name \"composer.phar\")",
+      "Bash(wait)",
+      "Bash(wget -q https://phar.phpunit.de/phpunit-9.phar -O phpunit.phar)",
+      "Bash(chmod +x /tmp/phpunit.phar)",
+      "Bash(php7.4 /tmp/phpunit.phar --version)",
+      "Bash(php7.4 /tmp/phpunit.phar --testsuite=AdOpsUnit --no-coverage)",
+      "Bash(php7.4 /tmp/phpunit.phar --testsuite=AdOpsUnit --no-coverage --testdox)"
     ]
   }
 }

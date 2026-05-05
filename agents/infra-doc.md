@@ -298,11 +298,64 @@ You produce **two different formats** depending on the destination. They are NOT
 
 ### Local Markdown (`docs/infra/`)
 
-Raw, technical, grep-friendly documentation optimized for reading in an IDE or terminal:
+**Output location rule (READ THIS):** local markdown ALWAYS goes to `/var/www/php74/mason/docs/infra/`. Never write infra-doc output to a per-property directory like `xmlgeo/docs/Overview.md`, `click/docs/Overview.md`, etc.
+
+The per-property `<property>/docs/Overview.md` files mentioned elsewhere in this skill (under "Property scope" and "AdMedia Infrastructure Knowledge") are **read-only inputs** owned by the workspace's CLAUDE.md convention — they are NOT a destination for this skill. Even when documenting a single property at "Property scope", write the output to `docs/infra/YYYY-MM-DD-<property>-overview.md`. If you write to `<property>/docs/`, you have made an error and should move the files.
+
+Format details:
 - Standard markdown tables, headers, code blocks
 - Mermaid diagram source blocks (renders in GitHub/IDE preview)
 - Full verification commands
-- File naming: `YYYY-MM-DD-<slug>.md`
+- File naming: `YYYY-MM-DD-<slug>.md` (e.g., `2026-04-27-xmlgeo-overview.md`, `2026-04-27-xmlgeo-request-flow.md`)
+- Slug convention: `<property-or-system>-<topic>` so siblings sort together (`2026-04-14-amazon-ads-overview.md`, `2026-04-14-amazon-ads-ssp.md`, `2026-04-14-amazon-ads-reporting.md`)
+
+#### Local Markdown Template & Format Spec (MANDATORY)
+
+The `docs/infra/` directory has an established template. New docs MUST match it. Before writing, read 2–3 of these as reference: `2026-04-10-click-tracking.md`, `2026-04-14-amazon-ads-overview.md`, `2026-04-14-amazon-ads-ssp.md`, `2026-04-14-infra-redis-cluster-topology.md`.
+
+**Title format:**
+- Use literal `--` (double-hyphen), NOT em-dash (`—`).
+- Pattern: `# <System or Property> -- <Subtopic>`. Examples: `# Click Tracking -- Infrastructure & Operations`, `# Amazon Ads -- SSP Incoming Flow`, `# Redis Cluster Topology`.
+
+**Required sections, in this order:**
+
+1. **H1 title** (per format above)
+2. **Metadata table** — exactly these 4 rows: `Last Updated` (today's date), `Confirmed By` (`_(to be filled)_`), `Scope` (one terse phrase), `Audience` (`Developers, DevOps / SysAdmins`).
+3. *(Optional)* `> **Note:** ...` blockquote if there's an important reader heads-up (e.g. content moved to another doc).
+4. **`## What It Is`** — 1–3 sentence prose paragraph in plain English. What is this thing? Who uses it?
+5. **`## Quick Reference`** — dense lookup tables for the operationally critical facts: external services, config files, key endpoints/ports/hostnames. Tables are 2–3 columns, terse cells (one short phrase per cell, not paragraphs). This is the "paged at 2 AM" section.
+6. **`## Architecture Overview`** *or* **`## Full Request Trace: <entrypoint>`** — Mermaid diagram (`graph TD` or `graph LR` preferred; `sequenceDiagram` only when interactions are temporal). For request flows, prefer Mermaid over ASCII.
+7. **`## File Inventory`** — multiple **categorized** sub-tables (### Core Handlers, ### Redirects, ### Statistics, ### Security & Validation, etc.). Each table is `| File | Size | Purpose |` or `| File | Purpose |`. NEVER one giant alphabetical inventory; group by purpose.
+8. **`## Dependencies on msacommon/`** *(if applicable)* — table of `| Used In | msacommon Path | Purpose |`.
+9. **`## Environment Differences`** *(when dev vs prod differs)* — explicit notes; cross-link to infra docs for details.
+10. **`## Troubleshooting`** — H3 sub-headings per failure mode, each with `**Possible causes:**` numbered list and `**Diagnostic steps:**` bullet list. Reference file:line citations.
+11. **`## Verification Commands`** — bash commands in fenced code blocks that confirm the doc matches reality.
+12. **`## Change Log`** — table `| Date | Change | Author |`. First row: `YYYY-MM-DD | Initial documentation from codebase analysis | Claude`.
+
+**Cross-link pattern:** when referring to shared infrastructure (Redis ports, MySQL hosts, Memcache, etc.), use a blockquote: `> See Infrastructure docs for Redis port assignments and cluster topology.` Don't restate cluster details — link out.
+
+**Banned sections / patterns** (these appeared in the failed xmlgeo and adv_geo drafts — do not use them):
+- ❌ `## Open questions` — handle uncertainty inline with `> Note: confirm with team` blockquotes or in metadata, not as a dedicated bottom section.
+- ❌ `## Things explicitly NOT covered` — implicit by scope; redundant.
+- ❌ `## Operational notes / gotchas` as a long numbered prose list — break gotchas into Troubleshooting H3s with diagnostic steps, OR put them as terse `> Note:` callouts inline.
+- ❌ Em-dash separator in title (`—`).
+- ❌ Single mega-table for file inventory.
+- ❌ Cells with multi-sentence prose. Cells should be a phrase, not a paragraph.
+- ❌ "Authored by Claude" anywhere except the Change Log row's Author column.
+
+**Tone:** declarative, terse, code-citing. Prefer `cad.php:2241` (file:line) over "in cad.php on line 2241". Prefer 2-column tables over prose. Prefer Mermaid over ASCII over prose.
+
+**Self-check before writing the final file** — read your output against this list:
+- Title uses `--` not `—`?
+- Metadata table is exactly 4 rows?
+- `## What It Is` exists and is ≤3 sentences?
+- `## Quick Reference` comes before any architecture section?
+- File inventory is split into ≥2 categorized tables?
+- Banned sections (Open questions, Things NOT covered) are absent?
+- Change Log table is at the bottom?
+- All cross-references to Redis ports / DB hosts / Memcache use the `> See Infrastructure docs for...` blockquote pattern?
+
+If any answer is "no", revise before saving.
 
 ### Confluence (ADF — Atlassian Document Format)
 

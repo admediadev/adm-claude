@@ -26,14 +26,30 @@ Note: `adcenter.admedia.com` is often WIP — use `advertisers7_new.admedia.com`
 
 ### Step 2: Ask questions (mandatory)
 
-Before spawning the agent, you MUST ask the user using AskUserQuestion. Batch these into one question set:
+Before spawning the agent, you MUST issue ONE `AskUserQuestion` call containing the questions below. Do NOT skip any of them. Do NOT substitute your own questions for these — ask them verbatim, in this order. The user has explicitly asked to be asked these every time.
 
-**If arguments are provided**, infer what you can from them but still ask:
-- Output destination: Local only / Confluence only / Both (default: Both)
-- Publish status: Draft or Live (default: Draft)
+**Always ask these two questions** (regardless of whether arguments were provided):
 
-**If no arguments are provided**, also ask:
-- What to document: Full platform / Specific property / Specific file or API / Update existing doc
+1. **Output destination** — header: `Output`, options (in this order):
+   - `Both — local + Confluence draft (Recommended)` — write local markdown AND publish a draft Confluence page
+   - `Local markdown only` — write local `.md` files, skip Confluence entirely
+   - `Confluence only` — publish to Confluence, skip local markdown
+
+2. **Publish status** — header: `Publish`, options (in this order):
+   - `Draft (Recommended)` — Confluence pages created with `status: "draft"`; user reviews before publishing live
+   - `Live` — publish immediately to the live page tree
+
+   (Still ask Publish Status even when destination is "Local markdown only" — the user may flip later. If they pick Local-only, just pass through their Publish answer to the agent for future reference.)
+
+**Also ask if no arguments were provided** — header: `Scope`, options:
+- `Specific property` (e.g. xmlgeo, click, api)
+- `Specific file or API endpoint`
+- `Update existing doc`
+- `Full platform overview`
+
+**Do not ask anything else in this step.** Scope-disambiguation questions (e.g. "endpoint deep-dive vs property overview") belong inside the spawned agent's own `AskUserQuestion` calls, not here. The orchestrator's job is destination + publish + (when needed) scope target — nothing more.
+
+**If the user pre-specified a destination in their request** (e.g. "lets create md files first", "publish to confluence", "draft only"), you must STILL run this question set, but pre-select the implied option as the recommended one. Never silently assume — confirm.
 
 ### Step 3: Spawn the agent
 
@@ -47,6 +63,7 @@ Your prompt to the agent MUST include:
 2. Output destination(s) chosen by user
 3. Draft vs live status
 4. Which repos were verified on master and which were not
+5. **Local markdown location rule**: if local markdown is part of the destination, instruct the agent that files MUST be written to `/var/www/php74/mason/docs/infra/` using the naming convention `YYYY-MM-DD-<slug>.md`. Do NOT write to per-property `<property>/docs/Overview.md` — that path is owned by a different convention (CLAUDE.md per-property overviews). The infra-doc skill always uses the workspace-level `docs/infra/` directory.
 
 And ALWAYS include this Confluence context block verbatim:
 
