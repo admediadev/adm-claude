@@ -1,0 +1,15 @@
+{
+  "name": "admedia",
+  "owner": {
+    "name": "AdMedia",
+    "email": "mason.leavey@admedia.com"
+  },
+  "description": "AdMedia internal Claude Code plugins.",
+  "plugins": [
+    {
+      "name": "adm",
+      "source": "./plugins/adm",
+      "description": "AdMedia factory skills (ao-* Ad Ops, dev-* developer) that emit strict, schema-validated JSON to drive adops workflows (AA-22 New Advertiser Buildouts)."
+    }
+  ]
+}

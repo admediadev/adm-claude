@@ -1,0 +1,778 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://admedia.com/schemas/buildout-new_advertiser.schema.json",
+    "title": "Advertiser Factory buildout — new_advertiser (generated)",
+    "description": "GENERATED from Config\\BuildoutTypes by bin/gen-buildout-schema.php — do not edit by hand. Field names mirror the adops intake form so an imported JSON prefills 1:1.",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "schema_version",
+        "buildout_type",
+        "main"
+    ],
+    "properties": {
+        "schema_version": {
+            "const": "1.0"
+        },
+        "buildout_type": {
+            "type": "string",
+            "enum": [
+                "new_advertiser"
+            ]
+        },
+        "main": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+                "advertiser_name",
+                "categories",
+                "display_url",
+                "source_of_truth",
+                "has_agency"
+            ],
+            "properties": {
+                "advertiser_name": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "adv_id": {
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "account_type": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "enum": [
+                        "",
+                        "IO",
+                        "IV",
+                        "PP"
+                    ]
+                },
+                "categories": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "minItems": 1
+                },
+                "display_url": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "source_of_truth": {
+                    "type": "string",
+                    "enum": [
+                        "SA360",
+                        "GA",
+                        "Other"
+                    ]
+                },
+                "link_prefix": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "link_suffix": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "buildout_start": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "format": "date"
+                },
+                "deadline": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "format": "date"
+                },
+                "launch_date": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "format": "date"
+                },
+                "has_agency": {
+                    "type": "string",
+                    "enum": [
+                        "no",
+                        "yes"
+                    ]
+                },
+                "agency_name": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "allOf": [
+                {
+                    "if": {
+                        "properties": {
+                            "has_agency": {
+                                "const": "yes"
+                            }
+                        }
+                    },
+                    "then": {
+                        "required": [
+                            "agency_name"
+                        ]
+                    }
+                }
+            ]
+        },
+        "sections": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "advertiser_profile": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "email": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "first_name": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "last_name": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "company": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "website": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "address1": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "address2": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "city": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "state": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "country": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "zip": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "telephone": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "fax": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "sales_rep": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "domain": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "mngt_name": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "io_start_date": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "format": "date"
+                        },
+                        "io_end_date": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "format": "date"
+                        },
+                        "io_backstop": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "format": "date"
+                        },
+                        "total_io_amount": {
+                            "type": [
+                                "number",
+                                "null"
+                            ]
+                        },
+                        "est_monthly_budget": {
+                            "type": [
+                                "number",
+                                "null"
+                            ]
+                        },
+                        "budget_notes": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "io_agency": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "pixel": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "attribution_model": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "admedia_clickids": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "daily_reporting": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "portal_manual_upload": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "reporting_time_frame": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "reporting_lookback": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "reporting_details": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "suppression_list": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "shopping_feed": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "deep_linking_ok": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "ae_name": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "secondary_ae_name": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "am_name_contact": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "secondary_am_name": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "ao_name_contact": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "secondary_ao_name": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "ai_coordinator": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "targeting_audience": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "targeting_device": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "targeting_geo": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "targeting_terms": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "approved_traffic_sources": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "disapproved_traffic": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "goal_type": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "enum": [
+                                "",
+                                "roas",
+                                "cpa",
+                                "cpc",
+                                "cos",
+                                "clicks",
+                                "roi",
+                                "custom"
+                            ]
+                        },
+                        "goal_value": {
+                            "type": [
+                                "number",
+                                "null"
+                            ]
+                        },
+                        "custom_goal": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "tracking_param": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "enum": [
+                                "",
+                                "0",
+                                "1",
+                                "2"
+                            ]
+                        },
+                        "tracking_identifier": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "tracking_column": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "utm_value_in": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "enum": [
+                                "",
+                                "0",
+                                "1",
+                                "2"
+                            ]
+                        }
+                    }
+                },
+                "campaign": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "campaign_prefix": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "affiliate_id": {
+                            "type": [
+                                "number",
+                                "null"
+                            ]
+                        },
+                        "cpc": {
+                            "type": [
+                                "number",
+                                "null"
+                            ]
+                        },
+                        "budget": {
+                            "type": [
+                                "number",
+                                "null"
+                            ]
+                        },
+                        "freq_cap": {
+                            "type": [
+                                "number",
+                                "null"
+                            ]
+                        },
+                        "enable_xml": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "enum": [
+                                "",
+                                "1",
+                                "0"
+                            ]
+                        },
+                        "enable_js": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "enum": [
+                                "",
+                                "1",
+                                "0"
+                            ]
+                        },
+                        "whitelist_aff_id": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "enum": [
+                                "",
+                                "1",
+                                "0"
+                            ]
+                        }
+                    }
+                },
+                "economics": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "rpc": {
+                            "type": [
+                                "number",
+                                "null"
+                            ]
+                        },
+                        "click_cap": {
+                            "type": [
+                                "number",
+                                "null"
+                            ]
+                        },
+                        "cap_type": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "enum": [
+                                "Daily",
+                                "Weekly",
+                                "Monthly"
+                            ]
+                        },
+                        "conversion_cap": {
+                            "type": [
+                                "number",
+                                "null"
+                            ]
+                        },
+                        "click_drop_rpc": {
+                            "type": [
+                                "number",
+                                "null"
+                            ]
+                        },
+                        "alert_email": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "email_alert": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "enum": [
+                                "",
+                                "Yes",
+                                "No"
+                            ]
+                        }
+                    }
+                },
+                "creative_link": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "creative_landing_page": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "referrer_domain": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "domain_redirect": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        }
+                    }
+                },
+                "targeting": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "brand_type": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "enum": [
+                                "",
+                                "0",
+                                "1"
+                            ]
+                        },
+                        "geo_include": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "geo_exclude": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "affiliates": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "block_affiliates": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "pop_type": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "enum": [
+                                "",
+                                "tab",
+                                "under"
+                            ]
+                        },
+                        "fq_viewable_ratio": {
+                            "type": [
+                                "number",
+                                "null"
+                            ]
+                        }
+                    }
+                },
+                "demographics": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "device_target": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "age_target": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        },
+                        "gender_target": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "enum": [
+                                "",
+                                "male",
+                                "female",
+                                "m_male",
+                                "m_female",
+                                "both"
+                            ]
+                        },
+                        "location_target": {
+                            "type": [
+                                "string",
+                                "null"
+                            ]
+                        }
+                    }
+                },
+                "keywords": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "brand": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "exact": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "negative": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "list_bid": {
+                            "type": [
+                                "number",
+                                "null"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
