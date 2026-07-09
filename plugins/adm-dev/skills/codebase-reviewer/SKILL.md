@@ -1,5 +1,5 @@
 ---
-name: dev-codebase-reviewer
+name: codebase-reviewer
 description: "Developer - run a parallel multi-agent, security-focused code review of an AdMedia property. Use for codebase review, review this property, multi-agent review, security audit of the repo."
 ---
 

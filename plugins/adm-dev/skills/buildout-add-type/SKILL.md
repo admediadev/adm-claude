@@ -1,5 +1,5 @@
 ---
-name: dev-buildout-add-type
+name: buildout-add-type
 description: "STUB — Developer · scaffold a new Advertiser Factory buildout type. Will add a type entry to adops Config/BuildoutTypes.php (main + sections + steps), run bin/gen-buildout-schema.php to emit the JSON Schema, bundle it into the adm plugin, and create the matching ao-* skill stub. Establishes the adm-dev-* family. Not yet implemented."
 ---
 

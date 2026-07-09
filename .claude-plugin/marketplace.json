@@ -7,9 +7,14 @@
   "description": "AdMedia internal Claude Code plugins.",
   "plugins": [
     {
-      "name": "adm",
-      "source": "./plugins/adm",
-      "description": "AdMedia factory skills (ao-* Ad Ops, dev-* developer) that emit strict, schema-validated JSON to drive adops workflows (AA-22 New Advertiser Buildouts)."
+      "name": "adm-ao",
+      "source": "./plugins/adm-ao",
+      "description": "Ad Ops factory skills — AA-22 New Advertiser Buildouts. Emits strict, schema-validated JSON to import into the adops portal. For Ad Ops users (and devs)."
+    },
+    {
+      "name": "adm-dev",
+      "source": "./plugins/adm-dev",
+      "description": "Developer tools — chgrel, drest, infra-doc, codebase-reviewer, buildout-add-type. For engineers on the internal environment."
     }
   ]
 }

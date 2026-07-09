@@ -1,5 +1,5 @@
 ---
-name: ao-buildout-new-adv-channels
+name: buildout-new-adv-channels
 description: "STUB — Ad Ops · AA-22 · AA-30 Compile Slack channels for a new advertiser buildout. Will interview for advertiser/vertical/url/launch/KPI + geoblocks/trademark prefs and emit a validated JSON to create the brand ao-pub Slack channel, auto-invite pubAMs, and post the launch announcement. Not yet implemented."
 ---
 

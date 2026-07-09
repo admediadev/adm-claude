@@ -1,5 +1,5 @@
 ---
-name: ao-buildout-new-adv-tracker
+name: buildout-new-adv-tracker
 description: "STUB — Ad Ops · AA-22 · AA-31 Create a tracker for a new advertiser. Will interview for advertiser name, SoT (SA360/GA/Other), KPI (CPA/ROAS) and brand/nonbrand split, then emit validated JSON to instantiate the Advertiser Tracker sheet with the right tabs shown/hidden/renamed. Not yet implemented."
 ---
 

@@ -1,0 +1,11 @@
+{
+  "name": "adm-dev",
+  "description": "AdMedia developer tools. CHGREL ticket generation, drest prod→dev data refresh, infrastructure docs, multi-agent codebase review, and buildout-type scaffolding. Assumes the internal AdMedia environment/repos.",
+  "version": "0.1.0",
+  "author": {
+    "name": "AdMedia",
+    "email": "mason.leavey@admedia.com"
+  },
+  "homepage": "https://bit.admedia.com",
+  "keywords": ["admedia", "developer", "chgrel", "drest", "infra", "code-review"]
+}

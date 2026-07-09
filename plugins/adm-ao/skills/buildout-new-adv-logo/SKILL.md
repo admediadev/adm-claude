@@ -1,5 +1,5 @@
 ---
-name: ao-buildout-new-adv-logo
+name: buildout-new-adv-logo
 description: "STUB — Ad Ops · AA-22 · AA-32 Format a logo for a new advertiser. Will collect the advertiser ID + logo reference and emit validated JSON to drive formatting to a 200x200 transparent PNG, S3 upload, and Advertiser_info path update. Note: the image bytes are NOT carried in JSON — the logo is a file reference / separate upload. Not yet implemented."
 ---
 

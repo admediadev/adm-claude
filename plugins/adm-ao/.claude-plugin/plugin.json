@@ -1,0 +1,11 @@
+{
+  "name": "adm-ao",
+  "description": "AdMedia Ad Ops factory skills. Prompt-driven flows that interview for inputs and emit a strict, schema-validated JSON to drive adops portal workflows (AA-22 New Advertiser Buildouts). Safe for Ad Ops (non-technical) users.",
+  "version": "0.1.0",
+  "author": {
+    "name": "AdMedia",
+    "email": "mason.leavey@admedia.com"
+  },
+  "homepage": "https://admedia-jira.atlassian.net/browse/AA-22",
+  "keywords": ["admedia", "adops", "advertiser", "buildout", "factory", "aa-22", "adm-ao"]
+}

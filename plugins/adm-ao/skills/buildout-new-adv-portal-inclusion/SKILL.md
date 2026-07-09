@@ -1,5 +1,5 @@
 ---
-name: ao-buildout-new-adv-portal-inclusion
+name: buildout-new-adv-portal-inclusion
 description: "STUB — Ad Ops · AA-22 · AA-33 AO Portal inclusion request for a new advertiser. Will interview for advertiser name/AID, reporting email subject/sender/receiver + example report, and emit validated JSON to file the Portal Inclusion Jira ticket + Slack alert. Note: AA-33 already ships as a form-fill tab in adops (Manoj); this skill would generate its JSON. Not yet implemented."
 ---
 

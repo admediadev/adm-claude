@@ -1,5 +1,5 @@
 ---
-name: dev-chgrel
+name: chgrel
 description: "Developer - generate a Jira CHGREL change/release ticket description from this conversation using the new simplified format, then optionally create the ticket after approval. Use for chgrel, release ticket, change ticket, ticket description."
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: dev-infra-doc
+name: infra-doc
 description: "Developer - create AdMedia infrastructure documentation (server topology, DB connections, Redis, crons, env configs, runbooks); reads the codebase and publishes Confluence in ADF plus local markdown. Use for infra doc, document infrastructure, infrastructure runbook."
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: ao-buildout-new-adv-compile
+name: buildout-new-adv-compile
 description: "Ad Ops · AA-22 New Advertiser Buildouts · AA-29 Compile a New Advertiser. Generate a strict, validated buildout JSON to import into the adops Advertiser Factory. Use when the user says 'compile a new advertiser', 'advertiser factory', 'new advertiser buildout', 'generate buildout json', or names buildout type new_advertiser. Interviews for the main essentials AND each per-step section sub-form (offering to skip any and finish it in the portal), applies conditional logic, validates against the bundled JSON Schema, writes the file, and explains how to import it into adops and finish/run the steps."
 ---
 

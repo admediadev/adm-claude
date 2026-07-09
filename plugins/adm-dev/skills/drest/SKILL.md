@@ -1,5 +1,5 @@
 ---
-name: dev-drest
+name: drest
 description: "Developer - clone production database tables into the dev database using the internal drest command. Use for drest, refresh dev data, copy prod table to dev, clone table to dev."
 ---
 
