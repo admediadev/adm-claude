@@ -1,7 +1,7 @@
 {
   "name": "adm",
   "description": "AdMedia internal factory skills. Ad Ops (ao-*) and developer (dev-*) prompts that interview for inputs and emit strict, schema-validated JSON to drive adops portal workflows (AA-22 New Advertiser Buildouts, etc.).",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": {
     "name": "AdMedia",
     "email": "mason.leavey@admedia.com"
